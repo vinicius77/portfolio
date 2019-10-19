@@ -138,7 +138,7 @@ header {
 
 main {
   padding: 1rem 5.5rem;
-  height: calc(100vh - 60px); }
+  height: 100%; }
   main .icons {
     margin-top: 1rem; }
     main .icons a {
@@ -198,14 +198,22 @@ main {
     margin-bottom: 3rem;
     transition: all 0.5s ease-out; }
     .boxes div:hover {
-      padding: 1.5rem 1.5rem; }
+      padding: 1.5rem 1.5rem;
+      background-attachment: #444;
+      color: #fff; }
+      .boxes div:hover span {
+        color: #000; }
 
 #main-footer {
   text-align: center;
   padding: 1rem;
   background: #2b2b2b;
   color: #fff;
-  height: 60px; }
+  height: 60px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px; }
 
 @media screen and (max-width: 760px) {
   main {
