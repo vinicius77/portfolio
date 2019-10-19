@@ -7,6 +7,7 @@
     right: 35px;
     top: 35px;
     cursor: pointer;
+    //opacity: 0.6;
     @include easeOut;    
 
     .btn-line
@@ -63,7 +64,7 @@
     {
         margin: 0;
         padding: 0;
-        background: rgba(darken($primary-color, 5), 0.4);
+        background: rgba(darken($primary-color, 5), 0.4); //Avoid the Text to be affect by the opacity
         list-style: none;
         transform: translate3d(0, -100%, 0);
         @include easeOut;
@@ -76,7 +77,7 @@
 
     &-branding
     {
-        background: rgba($primary-color, 0.4);
+        background: rgba($primary-color, 0.4); //Avoid the Text to be affect by the opacity
         transform: translate3d(0, 100%, 0);
         @include easeOut;
 
@@ -90,9 +91,51 @@
             width: 250px;
             height: 250px;
             background: url(/dist/images/profile-pic.png);
-            background-size: cover;
+            background-size: cover; // solve the problem with the way the profile picture appear
             border-radius: 50%;
             border: solid 3px $secondary-color;
         }
+    }
+
+    .nav-item
+    {
+        transform: translate3d(600px, 0, 0);
+        @include easeOut;
+
+        &.show
+        {
+            transform: translate3d(0,0,0);
+        }
+
+        &.current > a {
+            color: $secondary-color;
+        }
+    }
+
+    .nav-link
+    {
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 200;
+        color: #fff;
+        text-decoration: none;
+        @include easeOut;
+
+        &:hover
+        {
+            color: $secondary-color;
+        }
+    }
+}
+
+// Delay nav items
+@for $x from 1 through 4
+{
+    .nav-item:nth-child(#{$x})
+    {
+        transition-delay: $x * 0.1s;
     }
 }
